@@ -1,0 +1,199 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "member1",
+      "password": "mem1pass",
+      "role": "member"
+    },
+    {
+      "id": "2",
+      "username": "pooja",
+      "password": "pass123",
+      "role": "librarian"
+    },
+    {
+      "id": "3",
+      "username": "member2",
+      "password": "mem2pass",
+      "role": "member"
+    },
+    {
+      "id": "4",
+      "username": "member3",
+      "password": "mem3pass",
+      "role": "member"
+    },
+    {
+      "id": "5",
+      "username": "member4",
+      "password": "mem4pass",
+      "role": "member"
+    }
+  ],
+  "books": [
+    {
+      "id": "1",
+      "title": "Angular Basics",
+      "author": "John Doe",
+      "category": "Programming",
+      "status": "borrowed",
+      "borrowedBy": "1",
+      "borrowDate": "2025-07-22",
+      "dueDate": "2025-08-05",
+      "returnDate": "2025-07-21"
+    },
+    {
+      "id": "2",
+      "borrowedBy": 5,
+      "bookId": 4,
+      "title": "Learning TypeScript",
+      "author": "Jane Smith",
+      "category": "Scripting",
+      "borrowDate": "2025-06-15",
+      "dueDate": "2025-08-04",
+      "returnDate": "2025-07-21",
+      "status": "borrowed"
+    },
+    {
+      "id": "3",
+      "userId": 1,
+      "bookId": 1,
+      "title": "Learning TypeScript",
+      "author": "Jane Smith",
+      "borrowDate": "2025-07-22",
+      "dueDate": "2025-08-05",
+      "status": "borrowed",
+      "returnDate": "2025-07-22",
+      "borrowedBy": "1"
+    },
+    {
+      "id": "4",
+      "userId": 1,
+      "bookId": 2,
+      "title": "Learning NodeJS",
+      "author": "Jane bay",
+      "borrowDate": "2025-06-15",
+      "dueDate": "2025-06-29",
+      "status": "available",
+      "returnDate": "2025-07-22"
+    },
+    {
+      "id": "5",
+      "title": "MongoDb",
+      "author": "Max",
+      "category": "Document",
+      "status": "borrowed",
+      "borrowedBy": 3,
+      "dueDate": "2025-08-03"
+    },
+    {
+      "id": "6",
+      "title": "Fullstack",
+      "author": "miller",
+      "category": "Programming",
+      "status": "borrowed",
+      "borrowedBy": 2,
+      "dueDate": "2025-08-03"
+    },
+    {
+      "id": "7",
+      "title": "Angular Basics",
+      "author": "John Doe",
+      "category": "Programming",
+      "status": "available",
+      "borrowedBy": 1,
+      "borrowDate": "2025-07-20",
+      "dueDate": "2025-07-15",
+      "returnDate": "2025-07-21"
+    },
+    {
+      "id": "8",
+      "title": "gen AI",
+      "author": "John Doe",
+      "category": "Programming",
+      "status": "available",
+      "borrowedBy": 1,
+      "borrowDate": "2025-07-20",
+      "dueDate": "2025-08-03",
+      "returnDate": "2025-07-22"
+    },
+    {
+      "id": "9",
+      "title": "Devops",
+      "author": "John Doe",
+      "category": "Programming",
+      "status": "available",
+      "borrowedBy": null
+    },
+    {
+      "id": "10",
+      "title": "Java",
+      "author": "John Doe",
+      "category": "Programming",
+      "status": "available",
+      "borrowedBy": null
+    },
+    {
+      "id": "11",
+      "title": "Java SpringBoot",
+      "author": "John Doe",
+      "category": "Programming",
+      "status": "available",
+      "borrowedBy": null
+    },
+    {
+      "id": "12",
+      "title": "git",
+      "author": "John Doe",
+      "category": "Programming",
+      "status": "available",
+      "borrowedBy": null,
+      "returnDate": "2025-07-22"
+    }
+  ],
+  "bookHistory": [
+    {
+      "id": "1",
+      "userId": 1,
+      "bookId": 4,
+      "title": "Angular Essentials",
+      "author": "John Doe",
+      "borrowDate": "2025-07-05",
+      "dueDate": "2025-07-19",
+      "returnDate": "2025-07-13",
+      "status": "available"
+    },
+    {
+      "id": "2",
+      "userId": 1,
+      "bookId": 4,
+      "title": "Learning TypeScript",
+      "author": "Jane Smith",
+      "borrowDate": "2025-06-15",
+      "dueDate": "2025-07-19",
+      "returnDate": "2025-07-13",
+      "status": "available"
+    },
+    {
+      "id": "3",
+      "userId": 1,
+      "bookId": 1,
+      "title": "Learning TypeScript",
+      "author": "Jane Smith",
+      "borrowDate": "2025-06-15",
+      "dueDate": "2025-06-29",
+      "status": "borrowed"
+    },
+    {
+      "id": "4",
+      "userId": 1,
+      "bookId": 2,
+      "title": "Learning NodeJS",
+      "author": "Jane bay",
+      "borrowDate": "2025-06-15",
+      "dueDate": "2025-06-29",
+      "status": "borrowed"
+    }
+  ]
+}

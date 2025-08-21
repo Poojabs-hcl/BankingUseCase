@@ -1,0 +1,50 @@
+
+
+
+<h2>Librarian Dashboard</h2>
+<mat-card>
+<form [formGroup]="idform">
+<mat-form-field appearance="outline">
+<mat-label>Search Member by ID</mat-label>
+<input matInput formControlName="memberId">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="searchMemberBooks()">Search Member</button>
+<div *ngIf="memberBooks.length">
+<h3>Books Borrowed by Member {{ idform.get('memberId')?.value }}</h3>
+<mat-list>
+  <mat-list-item *ngFor="let book of memberBooks">
+    {{ book.title }} by {{ book.author }} ({{ book.category }})
+  </mat-list-item>
+</mat-list>
+</div>
+</form>
+</mat-card>
+<mat-divider></mat-divider>
+
+<mat-card>
+<form [formGroup]="titleform">
+<mat-form-field appearance="outline">
+<mat-label>Search Book by Title</mat-label>
+<input matInput formControlName="bookTitle" placeholder="Enter book title" />
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="searchBooksByTitle()" >
+Search Book
+</button> 
+
+<div *ngIf="searchedBooks.length">
+<h3>Search Results for "{{ titleform.get('bookTitle')?.value }}"</h3>
+<mat-list>
+<mat-list-item *ngFor="let book of searchedBooks">
+  {{ book.title }} - Status: {{ book.status }}
+  <span *ngIf="book.borrowedBy"> | Borrowed By: {{ book.borrowedBy }}</span>
+</mat-list-item>
+</mat-list>
+</div>
+
+</form>
+
+</mat-card>
+
+
+
+

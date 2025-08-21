@@ -1,0 +1,25 @@
+<mat-table [dataSource]="tableDataSource">
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.key">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <ng-container *ngIf="column.key !== 'action'; else actionTpl">
+          {{ column.cell ? column.cell(element) : element[column.key] }}
+        </ng-container>
+        <ng-template #actionTpl>
+          <button mat-button color="primary" (click)="onActionClick(element)">Return</button>
+        </ng-template>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumnKeys"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnKeys"></mat-row>
+
+  </mat-table>
+  
+  <mat-paginator
+    [length]="totalLength"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+  

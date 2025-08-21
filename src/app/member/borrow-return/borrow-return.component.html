@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Welcome, {{ userId }}</h2>
+  <mat-table [dataSource]="books" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell *matCellDef="let book"> {{ book.title }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+      <mat-cell *matCellDef="let book"> {{ book.author }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let book"> {{ book.status }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="borrowDate">
+      <mat-header-cell *matHeaderCellDef> Borrow Date </mat-header-cell>
+      <mat-cell *matCellDef="let book"> {{ book.borrowDate || '-' }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dueDate">
+      <mat-header-cell *matHeaderCellDef> Due Date </mat-header-cell>
+      <mat-cell *matCellDef="let book"> {{ book.dueDate || '-' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let book">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="borrowBook(book)"
+          [disabled]="book.status !== 'available' || !canBorrowFlag"
+        >
+         Borrow
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

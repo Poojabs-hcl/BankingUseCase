@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    Welcome, {{ user?.username }}!
+    <span class="spacer"></span>
+    <button mat-button (click)="logout()">Logout</button>
+  </mat-toolbar>
+  
+  <div class="dashboard-buttons">
+    <button mat-raised-button color="accent" routerLink="/member/search-books">Search Books</button>
+    <button mat-raised-button color="accent" routerLink="/member/borrow-return">Borrow/Return</button>
+    <button mat-raised-button color="accent" routerLink="/member/history">Borrow History</button>
+  </div>
+  
+<router-outlet></router-outlet>
+
+  

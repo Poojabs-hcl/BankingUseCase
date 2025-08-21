@@ -1,0 +1,11 @@
+.dashboard-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  

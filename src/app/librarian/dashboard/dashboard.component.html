@@ -1,0 +1,91 @@
+<h2>Librarian Dashboard</h2>
+<mat-card>
+  <form [formGroup]="idform">
+    <mat-form-field appearance="outline">
+      <mat-label>Search Member by ID</mat-label>
+      <input matInput formControlName="memberId">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchMemberBooks()">Search Member</button>
+    <div *ngIf="searchPerformed && memberBooks.length > 0; else default">
+      <h3>Books Borrowed by Member {{ idform.get('memberId')?.value }}</h3>
+      <table mat-table [dataSource]="memberBooks" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let book"> {{ book.title }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef> Author </th>
+          <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let book"> {{ book.category }} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let book"> {{ book.status }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['title', 'author', 'category','status']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['title', 'author', 'category','status']"></tr>
+      </table>
+
+
+    </div>
+
+
+    <ng-template #default>
+      <p *ngIf="searchPerformed">No books found for this member.</p>
+    </ng-template>
+
+  </form>
+</mat-card>
+<mat-divider></mat-divider>
+
+<mat-card>
+  <form [formGroup]="titleform">
+    <mat-form-field appearance="outline">
+      <mat-label>Search Book by Title</mat-label>
+      <input matInput formControlName="bookTitle" placeholder="Enter book title" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchBooksByTitle()">
+      Search Book
+    </button>
+
+    <div *ngIf="searchedBooks.length; else default">
+      <h3>Search Results for "{{ titleform.get('bookTitle')?.value }}"</h3>
+      <table mat-table [dataSource]="searchedBooks" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let book"> {{ book.title }} </td>
+        </ng-container>
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef> Author </th>
+          <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
+        </ng-container>
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+
+          <td mat-cell *matCellDef="let book"> {{ book.category }} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+
+          <td mat-cell *matCellDef="let book"> {{ book.status }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['title', 'author', 'category','status']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['title', 'author', 'category','status']"></tr>
+      </table>
+
+    </div>
+    <ng-template #default>
+      <p>No books found.</p>
+    </ng-template>
+  </form>
+
+</mat-card>
